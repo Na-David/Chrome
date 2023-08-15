@@ -15,18 +15,35 @@ const modifyNumber = (month) => {
 const getNowDate = () => {
     const nowDate = new Date();
 
-    const week = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
-    const monthList = ["January","February","March","April","May","Jun","July","August","September","October","November","December"];
+    const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const monthList = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
     let month = monthList[nowDate.getMonth()];
     let date = modifyNumber(nowDate.getDate());
     let day = week[nowDate.getDay()];
 
-    console.log(month, date, day);
+    setNowDate(month, date, day);
+
 }
 
 const setNowDate = (month, date, day) => {
-    dateElement.textContent = `${month}`
+    dateElement.textContent = `${date} ${month}, ${day}`
+}
+
+const getNowTime = () => {
+    const nowDate = new Date();
+
+    let hour = nowDate.getHours();
+    let min = modifyNumber(nowDate.getMinutes());
+    let sec = modifyNumber(nowDate.getSeconds());
+
+    setNowTime(hour, min, sec);
+
+}
+
+const setNowTime = (hour, min, sec) => {
+    timeElement.textContent = `${hour} : ${min} : ${sec}`;
 }
 
 getNowDate();
+getNowTime();
