@@ -3,12 +3,6 @@ const timeElement = document.getElementById("time");
 
 const modifyNumber = (month) => {
 
-    // if( month < 10){
-    //     return "0"+ month
-    // } else {
-    //     return month
-    // }
-
     return parseInt(month) < 10 ? "0" + month : month;
 }
 
