@@ -1,23 +1,15 @@
-const API_KEY = "9FnZ0tl0VxGKRXh5vowvA14NCL6enI9TDswn6wKx";
+const API_URL = "https://random-quote.hyobb.com"
+const quoteElement =  document.getElementById("bible");
 
-
-const bibleElement = document.getElementById("bible");
-
-const getBible = async() => {
-    
-    const API_ENDPOINT = "http://quotes.rest/bible/vod.js";
-    const headers = {
-        "Authorization": `Bearer ${API_KEY}`
-    };
-
-    const data = await fetch(API_ENDPOINT, { headers }).then((res) => res.json)
-
-    console.log(data);
+const getQuote = async() => {
+    try {
+        const data = await fetch(API_URL).then((res) => res.json());
+        console.log(data);
+        const result = data[1].respond;
+        console.log(result);   
+    } catch(err) {
+        console.log(`err: ${err}`);
+    }
 }
 
-const displayBible = (data) => {
-    const bible = document.getElementById("bible");
-    bible.textContent = data + bible.textContent;
-}
-
-getBible();
+getQuote();
