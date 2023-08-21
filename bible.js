@@ -5,13 +5,19 @@ const bibleElement = document.getElementById("bible");
 
 const getBible = async() => {
     
-    const API_ENDPOINT = "http://quotes.rest/bible/verse.json";
+    const API_ENDPOINT = "http://quotes.rest/bible/vod.js";
     const headers = {
         "Authorization": `Bearer ${API_KEY}`
     };
 
-    const data = await fetch(API_ENDPOINT, {headers} ).then((res)=>res.json())
+    const data = await fetch(API_ENDPOINT, { headers }).then((res) => res.json)
+
     console.log(data);
+}
+
+const displayBible = (data) => {
+    const bible = document.getElementById("bible");
+    bible.textContent = data + bible.textContent;
 }
 
 getBible();
