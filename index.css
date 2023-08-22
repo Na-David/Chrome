@@ -98,3 +98,21 @@ body {
     background-color: rgba(0,0,0,0.5);
 }
 
+.bookmark-close div {
+    cursor: pointer;
+}
+
+.bookmark-open div {
+    cursor: pointer;
+}
+
+.bookmark-bar {
+    width: 240px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    min-height: calc(100vh - 70px);
+    padding: 10px 30px;
+    color: white;
+}
