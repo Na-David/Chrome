@@ -1,4 +1,5 @@
-const API_URL = "https://random-quote.hyobb.com"
+(function() {
+    const API_URL = "https://random-quote.hyobb.com"
 const quoteElement =  document.getElementById("bible");
 
 const quoteItem = localStorage.getItem("quote");
@@ -39,3 +40,5 @@ if (quoteItem) {
 
 
 getQuote();
+
+})

@@ -1,4 +1,5 @@
-const dateElement = document.getElementById("date");
+(function() {
+    const dateElement = document.getElementById("date");
 const timeElement = document.getElementById("time");
 
 const modifyNumber = (month) => {
@@ -43,3 +44,4 @@ getNowDate();
 getNowTime();
 
 setInterval(getNowTime, 1000);
+}) 

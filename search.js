@@ -1,4 +1,5 @@
-const searchInput = document.getElementById("search-input");
+(function() {
+    const searchInput = document.getElementById("search-input");
 
 const showSearchResult = () => {
     let searchWord = searchInput.value;
@@ -15,3 +16,4 @@ const enterKey = (e) => {
 searchInput.addEventListener("keypress",(e) => {
     enterKey(e);
 });
+})

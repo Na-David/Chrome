@@ -1,4 +1,5 @@
-const bookmarkBar = document.getElementById("bookmark-bar");
+(function() {
+    const bookmarkBar = document.getElementById("bookmark-bar");
 const bookmarkOpen = document.getElementById("bookmark-open");
 const bookmarkClose = document.getElementById("bookmark-close");
 
@@ -31,3 +32,4 @@ const bookmarkBarToggle = () => {
 
 document.getElementById("bookmark-open-btn").addEventListener("click",bookmarkBarToggle);
 document.getElementById("bookmark-close-btn").addEventListener("click",bookmarkBarToggle);
+})
