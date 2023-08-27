@@ -1,35 +1,19 @@
-(function() {
-    const bookmarkBar = document.getElementById("bookmark-bar");
-const bookmarkOpen = document.getElementById("bookmark-open");
-const bookmarkClose = document.getElementById("bookmark-close");
+const newBookmarkForm = document.getElementById("bookmark-item-input-form");
 
-const isBookMarkBarOpen = localStorage.getItem("isBookMarkBarOpen");
-if ( isBookMarkBarOpen === "close") {
-    bookmarkBar.style.display = "none";
-    bookmarkOpen.style.display = "none";
-    bookmarkClose.style.display = "flex";
+let bookmarkList = [];
+if (localStorage.getItem("bookmarkList")) {
+    bookmarkList = JSON.parse(localStorage.getItem("bookmarkList"));
 } else {
-    bookmarkBar.style.display = "block";
-    bookmarkOpen.style.display = "flex";
-    bookmarkClose.style.display = "none";
+    localStorage.setItem("bookmarkList", JSON.stringify(bookmarkList));
 }
 
-const bookmarkBarToggle = () => {
-    const isBookMarkBarOpen = localStorage.getItem("isBookMarkBarOpen");
 
-    if (isBookMarkBarOpen === "close") {
-        localStorage.setItem("isBookMarkBarOpen", "open");
-        bookmarkBar.style.display = "block";
-        bookmarkOpen.style.display = "flex";
-        bookmarkClose.style.display = "none";
-        return;
-    }
-    localStorage.setItem("isBookMarkBarOpen", "close");
-    bookmarkBar.style.display = "none";
-    bookmarkOpen.style.display = "none";
-    bookmarkClose.style.display = "flex";
+let isAddBtnClick = false;
+newBookmarkForm.style.display = "none";
+
+const newBookmarkToggle = () => {
+    isAddBtnClick = !isAddBtnClick;
+    isAddBtnClick ? (newBookmarkForm.style.display = "block") : (newBookmarkForm.style.display = "none");
 }
 
-document.getElementById("bookmark-open-btn").addEventListener("click",bookmarkBarToggle);
-document.getElementById("bookmark-close-btn").addEventListener("click",bookmarkBarToggle);
-})
+document.getElementById("bookmark-item-add-btn").addEventListener("click", newBookmarkToggle);
